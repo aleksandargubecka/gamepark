@@ -19,7 +19,6 @@ class PageController extends Zend_Controller_Action
         $form->setAttrib('id', 'contact');
         $this->view->form = $form;
         $this->view->pageTitle = 'Contact';
-        $this->view->active = 'contact';
 
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($_POST)) {

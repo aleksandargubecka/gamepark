@@ -295,27 +295,50 @@ td{border-width:0 1px;}
 
 /* Login & Sign Up
 --------------------------------------------------------------------------------------------------------------- */
-#login, #signup{
+#reservation, #login, #signup{
 	text-align: center;
 }
-#login dl, #signup dl{
+#reservation dl, #login dl, #signup dl{
 	display: inline-block;
 	width: 400px;
 }
-#login dt, #signup dt{
+#reservation dt, #login dt, #signup dt{
 	float: left;
 	width: 150px;
 	margin-right: 10px;
 	text-align: left;
 }
-#login dt, #signup dt, #login dd, #signup dd{
+#reservation dt, #reservation dd, #login dt, #signup dt, #login dd, #signup dd{
 	margin-bottom: 10px;
 }
 
-#login dt label, #signup dt label{
+#reservation dt.clear-min-height, #reservation dd.clear-min-height{
+	min-height: inherit;
+}
+
+#reservation dt label,#login dt label, #signup dt label{
 	margin-bottom: 0;
 }
 
+dt#period-label{
+	width: 100%;
+}
+
+#reservation dt, #reservation dd{
+	min-height: 50px;
+}
+
+#period-element:before, #period-element:after{display:table; content:"";}
+#period-element:after{clear:both;}
+
+#period-element label{
+	float: left;
+	width: 100%;
+	text-align: left;
+}
+#period-element label input{
+	float: left;
+}
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#888888; background-color:#EEEEEE;}
@@ -323,7 +346,7 @@ a{color:#E9365A;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
-input:focus, textarea:focus, *:required:focus{border-color:#E9365A;}
+input:focus, textarea:focus, *:required:focus{ border-color:#E9365A;}
 .overlay{color:#FFFFFF; background-color:inherit;}
 .overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
 .overlay.coloured::after{color:#292B2C; background-color:rgba(233,54,90,.5);/* #E9365A */}

@@ -10,19 +10,29 @@ class Application_Form_Registration extends Zend_Form
             ->setRequired(false);
 
         $email = $this->createElement('text','email');
-        $email->setLabel('Email: *')
-            ->setRequired(false);
+        $email
+            ->setLabel('Email: *')
+            ->setRequired(false)
+            ->setRequired(true)
+            ->addValidator('NotEmpty', true)
+            ->addValidator('EmailAddress');
 
         $username = $this->createElement('text','username');
         $username->setLabel('Username: *')
+            ->addFilter('StringToLower')
+            ->addValidator('NotEmpty', true)
             ->setRequired(true);
 
         $password = $this->createElement('password','password');
         $password->setLabel('Password: *')
+            ->addValidator('NotEmpty', true)
+            ->addValidator('Password')
             ->setRequired(true);
 
         $confirmPassword = $this->createElement('password','confirmPassword');
         $confirmPassword->setLabel('Confirm Password: *')
+            ->addValidator('NotEmpty', true)
+            ->addValidator('Password')
             ->setRequired(true);
 
         $submit = $this->createElement('submit','register');

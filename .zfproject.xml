@@ -39,6 +39,7 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Users"/>
+          <dbTableFile dbTableName="Reservations"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
