@@ -23,11 +23,13 @@ $application = new Zend_Application(
     APPLICATION_PATH . '/configs/application.ini'
 );
 
+
 /**
  * Custom routes
  */
 $FrontController = Zend_Controller_Front::getInstance();
 $Router = $FrontController->getRouter();
+
 $Router->addRoute("contact", new
     Zend_Controller_Router_Route
     (
@@ -35,6 +37,16 @@ $Router->addRoute("contact", new
         (
             "controller" => "Page",
             "action"     => "contact",
+        )
+    )
+);
+$Router->addRoute("activities", new
+    Zend_Controller_Router_Route
+    (
+        "activities", array
+        (
+            "controller" => "Activity",
+            "action"     => "index",
         )
     )
 );

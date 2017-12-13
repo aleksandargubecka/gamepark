@@ -310,6 +310,7 @@ td{border-width:0 1px;}
 }
 #reservation dt, #reservation dd, #login dt, #signup dt, #login dd, #signup dd{
 	margin-bottom: 10px;
+	min-height: 50px;
 }
 
 #reservation dt.clear-min-height, #reservation dd.clear-min-height{
@@ -339,6 +340,7 @@ dt#period-label{
 #period-element label input{
 	float: left;
 }
+
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#888888; background-color:#EEEEEE;}

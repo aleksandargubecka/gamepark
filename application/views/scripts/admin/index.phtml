@@ -1,0 +1,37 @@
+<?= $this->partial('admin/header.phtml', array('pageTitle' => $this->pageTitle)) ?>
+<?= $this->partial('messages.phtml', array('messages' => $this->errorMessage, 'type' => $this->messageType)) ?>
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <h1>Admin</h1>
+        <ul class="nospace admin-list">
+            <li>
+                <a href="<?php echo $this->baseUrl() . '/admin/users'; ?>">
+                    <i class="fa fa-users"></i><h6 class="heading">Users</h6>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo $this->baseUrl(); ?>">
+                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                    <h6 class="heading">Activities</h6>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo $this->baseUrl() . '/admin/reservations'; ?>">
+                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    <h6 class="heading">Reservations</h6>
+                </a>
+            </li>
+        </ul>
+
+        <?php if(!empty($this->lastLoggedUsers)): ?>
+            <h2>Last logged in users:</h2>
+            <ul class="nospace users-list">
+                <li>Name - Username <span class="fl_right">Last Login</span></li>
+                <?php foreach ($this->lastLoggedUsers as $lastLoggedUser) :?>
+                    <li><?php echo !empty($lastLoggedUser->real_name) ? $lastLoggedUser->real_name . ' - ' : '';  ?><?php echo $lastLoggedUser->username; ?> <span class="fl_right"><?php echo $lastLoggedUser->last_login?></span></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </main>
+</div>
+<?= $this->partial('admin/footer.phtml') ?>

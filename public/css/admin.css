@@ -1,0 +1,47 @@
+.admin-list{
+    margin: 50px 0;
+}
+.admin-list li{
+    transition: all .1s ease-in-out;
+}
+
+.admin-list li *{
+    transition: all .1s ease-in-out;
+}
+
+.admin-list li a{
+    line-height: 20px;
+    transition: all .1s ease-in-out;
+}
+
+.admin-list li a .fa{
+    float: left;
+    font-size: 20px;
+    margin-right: 20px;
+    line-height: 20px;
+}
+
+.admin-list li a:hover{
+    color: #989898;
+}
+
+.users-list li{
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+
+.users-list li:first-child{
+    background-color: #EEEEEE;
+}
+
+.users-list li:last-child{
+    border-bottom: none;
+}
+
+.back-button{
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #E9365A;
+}

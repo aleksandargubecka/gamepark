@@ -1,0 +1,11 @@
+<?= $this->partial('header.phtml', array('pageTitle' => $this->pageTitle)) ?>
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <?= $this->partial('messages.phtml', array('messages' => $this->errorMessage, 'type' => $this->messageType)) ?>
+        <?php
+        $this->form->setAction($this->url());
+        echo $this->form;
+        ?>
+    </main>
+</div>
+<?= $this->partial('footer.phtml') ?>
