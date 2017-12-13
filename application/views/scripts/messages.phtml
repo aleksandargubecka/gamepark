@@ -1,0 +1,10 @@
+<?php
+if (isset($this->messages)) {
+    ?>
+    <p id="messages" class="<?php echo isset($this->type) ? $this->type : 'notice'; ?>">
+        <?php
+        echo $this->messages;
+        ?>
+    </p>
+    <?php
+} ?>

@@ -1,0 +1,4 @@
+<?= $this->partial('header.phtml', array('pageTitle' => $this->pageTitle)) ?>
+<?= $this->partial('messages.phtml', array('messages' => $this->errorMessage, 'type' => $this->messageType)) ?>
+<h1>Page index</h1>
+<?= $this->partial('footer.phtml') ?>

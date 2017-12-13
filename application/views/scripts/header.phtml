@@ -1,0 +1,70 @@
+<?= $this->doctype() ?>
+<html>
+<head>
+    <title><?php echo $this->escape($this->pageTitle); ?></title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl(); ?>/css/layout.css" type="text/css">
+</head>
+<body id="top">
+<div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+        <div class="fl_left">
+            <ul class="nospace inline pushright">
+                <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+                <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+            </ul>
+        </div>
+        <div class="fl_right">
+            <ul class="faico clear">
+                <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="faicon-pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a class="faicon-rss" href="#"><i class="fa fa-rss"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="wrapper row1">
+    <header id="header" class="hoc clear">
+        <div id="logo" class="fl_left">
+            <h1><a href="<?php echo $this->baseUrl() . "/"; ?>">Playground</a></h1>
+        </div>
+        <div id="quickinfo" class="fl_right">
+            <ul class="nospace inline">
+                <li><strong>Malesuada:</strong><br>
+                    +00 (123) 456 7890
+                </li>
+                <li><strong>Semper:</strong><br>
+                    +00 (123) 456 7890
+                </li>
+            </ul>
+        </div>
+    </header>
+</div>
+<div class="wrapper row2">
+    <nav id="mainav" class="hoc clear">
+        <ul>
+            <li <?php echo $this->url() == '/' ? 'class="active"' : ''; ?>><a href="<?php echo $this->baseUrl() . "/"; ?>">Home</a></li>
+            <li <?php echo $this->url() == '/reservation' ? 'class="active"' : ''; ?>><a href="<?php echo $this->baseUrl() . "/reservation"; ?>">Reservation</a></li>
+            <li><a href="#">Activities</a></li>
+            <li <?php echo $this->url() == '/contact' ? 'class="active"' : ''; ?>><a href="<?php echo $this->baseUrl() . "/contact"; ?>">Contact</a></li>
+        </ul>
+        <ul class="fl_right">
+            <li><a class="drop" href="javascript:void(0)"><i class="fa fa-user"></i></a>
+                <ul>
+                    <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                        <li><a href="<?php echo $this->baseUrl() . '/auth/logout'; ?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="<?php echo $this->baseUrl() . '/auth/login'; ?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                        <li><a href="<?php echo $this->baseUrl() . '/auth/signup'; ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign up</a></li>
+                    <?php endif; ?>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
