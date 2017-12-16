@@ -32,6 +32,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="users"/>
           <actionMethod actionName="reservations"/>
+          <actionMethod actionName="activities"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -50,6 +51,9 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="Reservations"/>
+          <dbTableFile dbTableName="Activites"/>
+          <dbTableFile dbTableName="Media"/>
+          <dbTableFile dbTableName="Comments"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
@@ -97,6 +101,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="reservations"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="activities"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

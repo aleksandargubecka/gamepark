@@ -1,0 +1,19 @@
+<?= $this->partial('admin/header.phtml', array('pageTitle' => $this->pageTitle)) ?>
+<?= $this->partial('messages.phtml', array('messages' => $this->errorMessage, 'type' => $this->messageType)) ?>
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <a href="<?php echo $this->baseUrl() . '/admin'; ?>" class="back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to Admin panel</a>
+        <h1><i class="fa fa-file-text"></i> Activities</h1>
+        <?php if (!empty($this->activities)): ?>
+            <ul class="nospace users-list">
+                <li>Title | Starts - Ends</li>
+                <?php foreach ($this->activities as $activity) : ?>
+                    <li><a href="<?php echo $this->baseUrl() . '/activity/' . $activity->id; ?>" target="_blank"><?php echo $activity->title?></a> | <?php echo $activity->starts_at . ' - ' . $activity->ends_at ?> <span class="fl_right"><a href="#" class="btn small default">Edit</a> | <a href="#" class="btn small danger">Delete</a></span></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>There are no users</p>
+        <?php endif; ?>
+    </main>
+</div>
+<?= $this->partial('admin/footer.phtml') ?>

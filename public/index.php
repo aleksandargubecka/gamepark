@@ -40,6 +40,7 @@ $Router->addRoute("contact", new
         )
     )
 );
+
 $Router->addRoute("activities", new
     Zend_Controller_Router_Route
     (

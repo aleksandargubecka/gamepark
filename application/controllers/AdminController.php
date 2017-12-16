@@ -42,10 +42,12 @@ class AdminController extends Zend_Controller_Action
         $this->view->reservations = $users->fetchAll();
     }
 
+    public function activitiesAction()
+    {
+        $activities = new Application_Model_DbTable_Activites();
+        $this->view->activities = $activities->fetchAll();
+    }
+
 
 }
-
-
-
-
 

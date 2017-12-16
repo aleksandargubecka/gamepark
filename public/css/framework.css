@@ -33,7 +33,10 @@ html, body{margin:0; padding:0; font-size:14px; line-height:1.6em;}
 
 .btn{display:inline-block; padding:15px 25px 17px; text-transform:uppercase; border:1px solid;}
 .btn.medium{padding:10px 20px 12px;}
-.btn.small{padding:8px 18px 10px; text-transform:none;}
+.btn.small{padding:3px 14px 4px; text-transform:none;}
+.btn.danger{background-color: #C8232C;  border: 0; } .btn.danger:hover{background-color: #76151b; color: #fff; }
+.btn.default{background-color: #0E76A8; border: 0;  } .btn.default:hover{background-color: #0a567b; color: #fff; }
+.btn.success{background-color: #09712b;  border: 0; } .btn.success:hover{background-color: #064c1d; color: #fff; }
 
 .clear, .group{display:block;}
 .clear::before, .clear::after, .group::before, .group::after{display:table; content:"";}
