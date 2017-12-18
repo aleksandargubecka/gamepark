@@ -11,6 +11,7 @@ File: Layout CSS
 @import url("fontawesome-4.5.0.min.css");
 @import url("custom.flexslider.css");
 @import url("framework.css");
+@import url("magnific-popup.css");
 
 /* Rows
 --------------------------------------------------------------------------------------------------------------- */
@@ -46,8 +47,14 @@ File: Layout CSS
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:150px 0;}
-
+#pageintro .flexslider .slides li{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#pageintro .flexslider .slides li article{
+	padding:150px;
+}
 #pageintro li article > div *{margin:0;}
 #pageintro li article > div:first-child *{margin:20px 0 0 0;}
 
@@ -121,6 +128,39 @@ File: Layout CSS
 #messages.notice{
 	background-color: #93eeffb3;
 	border: 1px solid #12206f;
+}
+
+/** Errors */
+.errors{
+	list-style: none;
+	padding: 0;
+	color: #ff0000;
+}
+
+/** Comments */
+#comments li{
+	padding: 0;
+	border: 1px solid #e3e3e3;
+	border-radius: 5px;
+}
+#comments li h5{
+	font-family: Verdana, Geneva, sans-serif;
+	padding: 10px;
+	background-color: #e3e3e3;
+}
+#comments li p{
+	padding: 10px;
+}
+
+.past-event{
+	color: #333333;
+}
+.past-event:hover{
+	text-decoration: underline;
+}
+
+.line-trough{
+	text-decoration: line-through;
 }
 /* Coloured Boxes
 --------------------------------------------------------------------------------------------------------------- */
@@ -239,10 +279,7 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 .sidebar nav ul ul ul a::after{left:45px;}
 
 /* Pagination */
-.pagination{display:block; width:100%; clear:both;}
-.pagination li{display:inline-block; margin:0 2px 0 0;}
-.pagination li:last-child{margin-right:0;}
-.pagination a, .pagination strong{display:block; padding:8px 11px; border:1px solid; background-clip:padding-box; font-weight:normal;}
+#pagination{  text-align: center; margin-top: 50px; }
 
 /* Back to Top */
 #backtotop{z-index:999; display:inline-block; position:fixed; visibility:hidden; bottom:20px; right:20px; width:36px; height:36px; line-height:36px; font-size:16px; text-align:center; opacity:.2;}
@@ -250,6 +287,10 @@ nav ul, nav ol{margin:0; padding:0; list-style:none;}
 #backtotop.visible{visibility:visible; opacity:.5;}
 #backtotop:hover{opacity:1;}
 
+.single .featured_image{
+	display: block;
+	margin: 0 auto;
+}
 
 /* Tables
 --------------------------------------------------------------------------------------------------------------- */
@@ -262,10 +303,18 @@ td{border-width:0 1px;}
 
 /* Gallery
 --------------------------------------------------------------------------------------------------------------- */
-#gallery{display:block; width:100%; margin-bottom:50px;}
-#gallery figure figcaption{display:block; width:100%; clear:both;}
-#gallery li{margin-bottom:30px;}
-
+#gallery li{
+	float: left;
+	width: 30%;
+	margin: 15px 1.5%;
+}
+#gallery li a{
+	display: block;
+	height: 200px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
 /* Font Awesome Social Icons
 --------------------------------------------------------------------------------------------------------------- */
@@ -274,6 +323,8 @@ td{border-width:0 1px;}
 .faico li:last-child{margin-right:0;}
 
 .faico a{display:block; width:30px; height:30px; line-height:30px; font-size:14px; text-align:center; border-radius:50%;}
+.faico a .fa{ line-height:30px; }
+.faico a:hover .fa{  color: #fff;  }
 .faico a{color:inherit; background-color:#DADADA;}
 
 .faico a:hover{color:#FFFFFF;}
@@ -373,6 +424,11 @@ input:focus, textarea:focus, *:required:focus{ border-color:#E9365A;}
 
 /* Header */
 #header #logo *{color:inherit;}
+#logo img{
+	float: left;
+	max-width: 200px;
+	max-height: 50px;
+}
 
 
 /* Content Area */
@@ -429,7 +485,9 @@ tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{
 tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
 table a, #comments a{background-color:inherit;}
 
-
+.black{
+	color: black;
+}
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */

@@ -1,0 +1,29 @@
+<div id="pagination">
+    <!--    first Page Link-->
+    <?php if (isset($this->previous)): ?>
+        <a href="<?php echo $this->url(array('page' => $this->first)); ?>">First</a> |
+    <?php else: ?>
+        <span class="disabled">First</span> |
+    <?php endif; ?>
+
+    <!--    previous Pagelink-->
+    <?php if (isset($this->previous)): ?>
+        <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">&lt; Previous</a> |
+    <?php else: ?>
+        <span class="disabled">&lt; Previous</span> |
+    <?php endif; ?>
+
+    <!--    next Page link-->
+    <?php if (isset($this->next)): ?>
+        <a href="<?php echo $this->url(array('page' => $this->next)); ?>">Next &gt;</a> |
+    <?php else: ?>
+        <span class="disabled">Next &gt;</span> |
+    <?php endif; ?>
+
+    <!--    Last page link-->
+    <?php if (isset($this->next)): ?>
+        <a href="<?php echo $this->url(array('page' => $this->last)); ?>">Last</a>
+    <?php else: ?>
+        <span class="disabled">Last</span>
+    <?php endif; ?>
+</div>

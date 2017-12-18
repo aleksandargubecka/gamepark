@@ -1,7 +1,28 @@
 <?= $this->partial('header.phtml', array('pageTitle' => $this->pageTitle)) ?>
 <div class="wrapper row3">
     <main class="hoc container clear">
-        <h1>Activities</h1>
+        <h1 class="black">Activities</h1>
+        <br>
+        <hr>
+        <br>
+        <?php if (!empty($this->activities)): ?>
+            <ul class="nospace group services">
+                <?php foreach ($this->activities as $activity) : ?>
+                    <li class="one_third">
+                        <h3 class="black"><a <?php echo time() > strtotime($activity->starts_at) ? 'class="past-event"' : ''; ?> href="<?php echo $this->baseUrl() . '/activity/' . $activity->id?>"><?php echo $activity->title?></a></h3>
+                        <h4 <?php echo time() > strtotime($activity->starts_at) ? 'class="line-trough"' : ''; ?>><?php echo date('H:i - d/m/Y', strtotime($activity->starts_at)); ?>
+                            <br> <?php echo  date('H:i - d/m/Y', strtotime($activity->ends_at)); ?></h4>
+                        <p><?php echo strlen($activity->description) > 100 ? substr($activity->description, 0, 100) . '...' : $activity->description; ?></p>
+                        <p><a href="<?php echo $this->baseUrl() . '/activity/' . $activity->id?>">Read more...</a></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php if (count($this->activities)): ?>
+                <?php echo $this->paginationControl($this->activities, 'Sliding', 'activityPagination.phtml'); ?>
+            <?php endif; ?>
+        <?php else: ?>
+            There are no activities
+        <?php endif; ?>
     </main>
 </div>
-<?= $this->partial('footer.phtml') ?>
+<?= $this->partial('footer.phtml', array('search' => $this->search)) ?>

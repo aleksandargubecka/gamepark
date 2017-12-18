@@ -1,10 +1,13 @@
 <?php
 if (isset($this->messages)) {
+    foreach ($this->messages as $message) {
+
     ?>
-    <p id="messages" class="<?php echo isset($this->type) ? $this->type : 'notice'; ?>">
+    <p id="messages" class="<?php echo isset($message['type']) ? $message['type'] : 'notice'; ?>">
         <?php
-        echo $this->messages;
+        echo $message['message'];
         ?>
     </p>
     <?php
+    }
 } ?>

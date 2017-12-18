@@ -21,19 +21,16 @@ class ReservationController extends Zend_Controller_Action
                 $data = $form->getValues();
 
                 if($reservations->exists($data['date'], $data['period'])){
-                    $this->view->errorMessage = "Already taken.";
-                    $this->view->messageType = "error";
+                    $this->view->messages = array(array('message' => "Already taken.", 'type' => 'error'));
                     return;
                 }
 
                 try {
                     $reservations->insert($data);
-                    $this->view->errorMessage = "Successfully reserved.";
-                    $this->view->messageType = "success";
+                    $this->view->messages = array(array('message' => "Successfully reserved.", 'type' => 'success'));
                     return;
                 } catch (Zend_Exception $e) {
-                    $this->view->messageType = "error";
-                    $this->view->errorMessage = $e->getMessage();
+                    $this->view->messages = array(array('message' => $e->getMessage(), 'type' => 'error'));
                 }
 
             }

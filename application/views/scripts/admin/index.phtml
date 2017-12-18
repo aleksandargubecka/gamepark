@@ -1,7 +1,7 @@
 <?= $this->partial('admin/header.phtml', array('pageTitle' => $this->pageTitle)) ?>
-<?= $this->partial('messages.phtml', array('messages' => $this->errorMessage, 'type' => $this->messageType)) ?>
 <div class="wrapper row3">
     <main class="hoc container clear">
+        <?= $this->partial('messages.phtml', array('messages' => $this->messages)) ?>
         <h1>Admin</h1>
         <ul class="nospace admin-list">
             <li>

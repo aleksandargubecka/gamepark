@@ -17,6 +17,7 @@
           <actionMethod actionName="signup"/>
           <actionMethod actionName="logout"/>
           <actionMethod actionName="edit"/>
+          <actionMethod actionName="promote"/>
         </controllerFile>
         <controllerFile controllerName="Page">
           <actionMethod actionName="index"/>
@@ -27,6 +28,10 @@
         </controllerFile>
         <controllerFile controllerName="Activity">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="create"/>
+          <actionMethod actionName="single"/>
         </controllerFile>
         <controllerFile controllerName="Admin">
           <actionMethod actionName="index"/>
@@ -41,6 +46,8 @@
         <formFile formName="Contact"/>
         <formFile formName="Reservation"/>
         <formFile formName="EditUser"/>
+        <formFile formName="CreateActivity"/>
+        <formFile formName="Comment"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -51,9 +58,10 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Users"/>
           <dbTableFile dbTableName="Reservations"/>
-          <dbTableFile dbTableName="Activites"/>
           <dbTableFile dbTableName="Media"/>
           <dbTableFile dbTableName="Comments"/>
+          <dbTableFile dbTableName="Activities"/>
+          <dbTableFile dbTableName="Galleries"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
@@ -104,6 +112,21 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="activities"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Activity">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Activity">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Activity">
+            <viewScriptFile forActionName="create"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Activity">
+            <viewScriptFile forActionName="single"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="promote"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

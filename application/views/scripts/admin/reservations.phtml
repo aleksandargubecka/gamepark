@@ -1,7 +1,7 @@
 <?= $this->partial('admin/header.phtml', array('pageTitle' => $this->pageTitle)) ?>
-<?= $this->partial('messages.phtml', array('messages' => $this->errorMessage, 'type' => $this->messageType)) ?>
 <div class="wrapper row3">
     <main class="hoc container clear">
+        <?= $this->partial('messages.phtml', array('messages' => $this->messages)) ?>
         <a href="<?php echo $this->baseUrl() . '/admin'; ?>" class="back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to Admin panel</a>
         <h1><i class="fa fa-calendar-o"></i> Reservations</h1>
         <?php if (!empty($this->reservations)): ?>
@@ -11,6 +11,9 @@
                     <li> <?php echo date('d/m/Y', strtotime($reservation->date)); ?> - <?php echo $reservation->period ?>h | <?php echo $reservation->oName ?> <a href="tel:<?php echo $reservation->oTelephone?>"><?php echo $reservation->oTelephone?></a> | <a href="mailto:<?php echo $reservation->oEmail?>"><?php echo $reservation->oEmail?></a> <span class="fl_right"><?php echo !empty($reservation->cName) ? $reservation->cName . ', ' : '';?><?php echo !empty($reservation->cAge) ? $reservation->cAge : ''; ?></span></li>
                 <?php endforeach; ?>
             </ul>
+            <?php if (count($this->reservations)): ?>
+                <?php echo $this->paginationControl($this->reservations, 'Sliding', 'pagination.phtml'); ?>
+            <?php endif; ?>
         <?php else: ?>
             <p>There are no users</p>
         <?php endif; ?>

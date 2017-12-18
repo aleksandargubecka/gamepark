@@ -1,0 +1,24 @@
+<?= $this->partial('admin/header.phtml', array('pageTitle' => $this->pageTitle)) ?>
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <?= $this->partial('messages.phtml', array('messages' => $this->messages)) ?>
+        <a href="<?php echo $this->baseUrl() . '/admin/activities'; ?>" class="back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to All Activities</a>
+        <?php echo $this->form ?>
+        <?php if(!empty($this->featured_image)): ?>
+            <h3>Featured image preview</h3>
+            <img src="<?php echo $this->featured_image->path?>" alt="<?php echo $this->featured_image->title?>">
+        <?php endif; ?>
+        <?php if(count($this->gallery)): ?>
+            <br>
+            <hr>
+            <br>
+            <h2>Gallery</h2>
+            <ul id="gallery" class="nospace clear">
+                <?php foreach ($this->gallery as $image) :?>
+                    <li><a style='background-image: url("<?php echo $image->path?>")' href="<?php echo $image->path?>"></a></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </main>
+</div>
+<?= $this->partial('admin/footer.phtml') ?>

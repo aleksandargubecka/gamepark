@@ -13,7 +13,7 @@
         <div class="fl_left">
             <ul class="nospace inline pushright">
                 <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
-                <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+                <li><i class="fa fa-envelope-o"></i> info@igraonica.zend</li>
             </ul>
         </div>
         <div class="fl_right">
@@ -32,17 +32,7 @@
 <div class="wrapper row1">
     <header id="header" class="hoc clear">
         <div id="logo" class="fl_left">
-            <h1><a href="<?php echo $this->baseUrl() . "/"; ?>">Playground</a></h1>
-        </div>
-        <div id="quickinfo" class="fl_right">
-            <ul class="nospace inline">
-                <li><strong>Malesuada:</strong><br>
-                    +00 (123) 456 7890
-                </li>
-                <li><strong>Semper:</strong><br>
-                    +00 (123) 456 7890
-                </li>
-            </ul>
+            <h1><a href="<?php echo $this->baseUrl() . "/"; ?>"><img src="<?php echo $this->baseUrl() . '/img/logo.png'?>" alt="Logo"></a></h1>
         </div>
     </header>
 </div>
@@ -72,9 +62,11 @@
                     <?php $user = Zend_Auth::getInstance()->getIdentity(); ?>
                     <a class="drop" href="javascript:void(0)"> <?php echo $user->username ?> <i class="fa fa-user"></i></a>
                     <ul>
-                        <li <?php echo $this->url() == '/admin' ? 'class="active"' : ''; ?>>
-                            <a href="<?php echo $this->baseUrl() . '/admin'; ?>"><i class="fa fa-cogs" aria-hidden="true"></i>
-                                Admin</a></li>
+                        <?php if($user->role > 0): ?>
+                            <li <?php echo $this->url() == '/admin' ? 'class="active"' : ''; ?>>
+                                <a href="<?php echo $this->baseUrl() . '/admin'; ?>"><i class="fa fa-cogs" aria-hidden="true"></i>
+                                    Admin</a></li>
+                        <?php endif; ?>
                         <li <?php echo $this->url() == '/auth/signup' ? 'class="active"' : ''; ?>>
                             <a href="<?php echo $this->baseUrl() . '/auth/edit'; ?>"><i class="fa fa-user" aria-hidden="true"></i>
                                 Edit</a></li>

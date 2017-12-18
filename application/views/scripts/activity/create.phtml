@@ -1,0 +1,9 @@
+<?= $this->partial('admin/header.phtml', array('pageTitle' => $this->pageTitle)) ?>
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <?= $this->partial('messages.phtml', array('messages' => $this->messages)) ?>
+        <a href="<?php echo $this->baseUrl() . '/admin/activities'; ?>" class="back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to All Activities</a>
+        <?php echo $this->form ?>
+    </main>
+</div>
+<?= $this->partial('admin/footer.phtml') ?>

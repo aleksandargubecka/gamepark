@@ -35,11 +35,9 @@ class PageController extends Zend_Controller_Action
                     $mail->addTo($adminsRow->email, 'Some Recipient');
                     $mail->setSubject($_POST['subject']);
                     $mail->send();
-                    $this->view->errorMessage = "Message successfully sent.";
-                    $this->view->messageType = "success";
+                    $this->view->messages = array(array('message' => "Message successfully sent.", 'type' => 'success'));
                 }catch (Zend_Exception $e){
-                    $this->view->errorMessage = $e->getMessage();
-                    $this->view->messageType = "error";
+                    $this->view->messages = array(array('message' => $e->getMessage(), 'type' => 'error'));
                 }
             }
         }

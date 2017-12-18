@@ -3,19 +3,17 @@ class Application_Form_Reservation extends Zend_Form {
 
     public function init() {
 
-        $reservations = new Application_Model_DbTable_Reservations();
-
         $date = $this->createElement('select', 'date');
         $date->setLabel('Date: *')
             ->setRequired(true)
             ->addValidator('NotEmpty', true)
-            ->addMultiOptions($reservations->getSaturdaysAndSundays());
+            ->addMultiOptions($this->getSaturdaysAndSundays());
 
         $period = $this->createElement('radio', 'period');
         $period->setLabel('Period: *')
             ->setRequired(true)
             ->addValidator('NotEmpty', true)
-            ->addMultiOptions($reservations->getPeriods());
+            ->addMultiOptions($this->getPeriods());
 
         $cName = $this->createElement('text', 'cName');
         $cName->setLabel('Name of the celebrator:')
@@ -59,6 +57,32 @@ class Application_Form_Reservation extends Zend_Form {
         ));
     }
 
+    public function getSaturdaysAndSundays() {
 
+        $currentDate = time();
+        $monthFromNow = strtotime('+1 months', $currentDate);;
+
+        $saturdaysAndSundays = array();
+        $j = 1;
+        for($i = $currentDate; $i <= $monthFromNow; $i = $i + 86400) {
+            $dayInWeek = date("w",$i);
+            if($dayInWeek == 0 || $dayInWeek == 6) {
+                $saturdaysAndSundays[date("Y-m-d", $i)] = date("l", $i) . ' ' . date("Y-m-d", $i);
+            }
+            if($dayInWeek == 0) {
+                $j++;
+            }
+        }
+
+        return $saturdaysAndSundays;
+    }
+
+    public function getPeriods() {
+        return array(
+            '12-15' => '12-15h',
+            '15-18' => '15-18h',
+            '18-21' => '18-21h',
+        );
+    }
 }
 

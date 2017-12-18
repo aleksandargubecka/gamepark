@@ -1,0 +1,49 @@
+<?= $this->partial('header.phtml', array('pageTitle' => $this->pageTitle)) ?>
+<div class="wrapper row3">
+    <main class="hoc container clear single">
+        <h1 class="black"><?php echo $this->activity->title; ?></h1>
+        <div class="clear">
+            <h3 class="fl_right"><?php echo date('H:i - d/m/Y', strtotime($this->activity->starts_at)); ?>
+                <br> <?php echo  date('H:i - d/m/Y', strtotime($this->activity->ends_at)); ?></h3>
+            <a class="fl_left" href="<?php echo $this->baseUrl() . '/activities'?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to All Activities</a>
+        </div>
+        <br>
+        <?php if(!empty($this->image)): ?>
+            <img class="featured_image" src="<?php echo $this->image['path']?>" alt="<?php echo $this->image['title'] ?>">
+        <?php endif; ?>
+        <br>
+        <p><?php echo $this->activity->description; ?></p>
+        <?php if(count($this->gallery)): ?>
+            <br>
+            <hr>
+            <br>
+            <h2>Gallery</h2>
+            <ul id="gallery" class="nospace clear">
+                <?php foreach ($this->gallery as $image) :?>
+                    <li><a style="background-image: url(<?php echo $image->path?>)" href="<?php echo $image->path?>"></a></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+        <br>
+        <hr>
+        <br>
+
+        <?php if(!empty($this->comments)): ?>
+            <ul id="comments" class="nospace">
+                <?php foreach ($this->comments as $comment) :?>
+                    <li>
+                        <h5><?php echo (!empty($comment['user'][0]->real_name)) ? $comment['user'][0]->real_name : $comment['user'][0]->username?> <span class="fl_right"><?php echo $comment['comment']->date?></span></h5>
+                        <p><?php echo $comment['comment']->text; ?></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+
+        <?php if($this->is_logged_in): ?>
+            <?php echo $this->form?>
+        <?php else: ?>
+            <p>In order to leave comment you must be logged in. <a href="<?php echo $this->baseUrl() . '/auth/login'; ?>">Login</a> or <a href="<?php echo $this->baseUrl() . '/auth/signup'; ?>">Sign up</a></p>
+        <?php endif; ?>
+    </main>
+</div>
+<?= $this->partial('footer.phtml') ?>

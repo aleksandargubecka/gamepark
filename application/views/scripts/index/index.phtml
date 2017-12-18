@@ -1,5 +1,46 @@
 <?= $this->partial('header.phtml', array('pageTitle' => $this->pageTitle)) ?>
-<?= $this->partial('index/hero.phtml') ?>
-<?= $this->partial('messages.phtml', array('messages' => $this->errorMessage)) ?>
-<?= $this->partial('index/activities.phtml') ?>
+<div class="wrapper bgded overlay">
+    <div id="pageintro" class="clear">
+        <div class="flexslider basicslider">
+            <ul class="slides">
+                <?php foreach ($this->slides as $slide) :?>
+                    <li  style="background-image:url('<?php echo $slide['image'][0]->path; ?>');">
+                        <article class="group">
+                            <div class="one_half first">
+                                <h2 class="heading"><?php echo $slide['slide']->title ?></h2>
+                                <h4 <?php echo time() > strtotime($slide['slide']->starts_at) ? 'class="line-trough"' : ''; ?>><?php echo date('H:i - d/m/Y', strtotime($slide['slide']->starts_at)); ?>
+                                    <br> <?php echo  date('H:i - d/m/Y', strtotime($slide['slide']->ends_at)); ?></h4>
+                                <p><?php echo strlen($slide['slide']->description) > 100 ? substr($slide['slide']->description, 0, 100) . '...' : $slide['slide']->description; ?></p>
+                                <p><a class="btn medium inverse" href="<?php echo $this->baseUrl() . '/activity/' . $slide['slide']->id ?>">Read More &raquo;</a></p>
+                            </div>
+                        </article>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<?= $this->partial('messages.phtml', array('messages' => $this->messages)) ?>
+<?php if (!empty($this->activities)): ?>
+<div class="wrapper row3">
+    <main class="hoc container clear">
+        <ul class="nospace group services">
+            <?php foreach ($this->activities as $activity) : ?>
+                <li class="one_third">
+                    <h3 class="black">
+                        <a <?php echo time() > strtotime($activity->starts_at) ? 'class="past-event"' : ''; ?> href="<?php echo $this->baseUrl() . '/activity/' . $activity->id ?>"><?php echo $activity->title ?> <?php echo time() > strtotime($activity->starts_at) ? ' (past event)' : ''; ?></a>
+                    </h3>
+                    <h4 <?php echo time() > strtotime($activity->starts_at) ? 'class="line-trough"' : ''; ?>><?php echo date('H:i - d/m/Y', strtotime($activity->starts_at)); ?>
+                        <br> <?php echo date('H:i - d/m/Y', strtotime($activity->ends_at)); ?></h4>
+                    <p><?php echo strlen($activity->description) > 100 ? substr($activity->description, 0, 100) . '...' : $activity->description; ?></p>
+                    <p><a href="<?php echo $this->baseUrl() . '/activity/' . $activity->id ?>">Read more...</a></p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php else: ?>
+            There are no activities
+        <?php endif; ?>
+        <div class="clear"></div>
+    </main>
+</div>
 <?= $this->partial('footer.phtml') ?>
