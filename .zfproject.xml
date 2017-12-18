@@ -77,6 +77,17 @@
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
         </moduleDirectory>
+        <moduleDirectory moduleName="SmsGateway">
+          <configsDirectory enabled="false"/>
+          <controllersDirectory/>
+          <formsDirectory enabled="false"/>
+          <layoutsDirectory enabled="false">
+            <layoutScriptsDirectory enabled="false"/>
+          </layoutsDirectory>
+          <modelsDirectory enabled="false"/>
+          <servicesDirectory enabled="false"/>
+          <viewsDirectory enabled="false"/>
+        </moduleDirectory>
       </modulesDirectory>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>

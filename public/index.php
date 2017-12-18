@@ -142,5 +142,16 @@ $Router->addRoute("admin/auth/promote/:id/:role", new
     )
 );
 
+$Router->addRoute("admin/auth/promote/:id/:role", new
+    Zend_Controller_Router_Route
+    (
+        "admin/auth/promote/:id/:role", array
+        (
+            "controller" => "Auth",
+            "action"     => "promote",
+        )
+    )
+);
+
 $application->bootstrap()
     ->run();

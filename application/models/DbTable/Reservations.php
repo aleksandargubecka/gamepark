@@ -20,5 +20,15 @@ class Application_Model_DbTable_Reservations extends Zend_Db_Table_Abstract
         return false;
     }
 
+    public function getReserved($date, $period, $telephone) {
+
+        $select = $this->_db->select()
+            ->from($this->_name,array('id'))
+            ->where('date=?',$date)
+            ->where('period=?',$period)
+            ->where('oTelephone=?', $telephone);
+
+       return $this->getAdapter()->fetchOne($select);
+    }
 }
 
